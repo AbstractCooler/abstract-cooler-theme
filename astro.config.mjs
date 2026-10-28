@@ -1,13 +1,20 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import vercel from '@astrojs/vercel';
+import decapCmsOauth from 'astro-decap-cms-oauth';
 
 // https://astro.build/config
 export default defineConfig({
-  // Template placeholder — replace with your real domain before deploying
-  // so the sitemap and canonical URLs point at the live site.
-  site: 'https://example.com',
-  integrations: [sitemap()],
+  site: 'https://abstract-cooler-theme.vercel.app',
+  output: 'static',
+  adapter: vercel(),
+  integrations: [
+    sitemap(),
+    decapCmsOauth({
+      decapCMSSrcUrl: 'https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js',
+    }),
+  ],
   vite: {
     css: {
       preprocessorOptions: {
