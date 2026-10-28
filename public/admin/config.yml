@@ -3,7 +3,7 @@ backend:
   repo: AbstractCooler/abstract-cooler-theme
   branch: main
   base_url: https://abstract-cooler-theme.vercel.app
-  auth_endpoint: api/auth
+  auth_endpoint: oauth
 
 media_folder: "public/images"
 public_path: "/images"
