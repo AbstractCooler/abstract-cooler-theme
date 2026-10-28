@@ -2,18 +2,5 @@ backend:
   name: github
   repo: AbstractCooler/abstract-cooler-theme
   branch: main
-
-media_folder: "public/images"
-public_path: "/images"
-
-collections:
-  - name: "blog"
-    label: "Articole Blog"
-    folder: "src/content/blog"
-    create: true
-    fields:
-      - {label: "Titlu", name: "title", widget: "string"}
-      - {label: "Data publicării", name: "pubDate", widget: "datetime"}
-      - {label: "Descriere", name: "description", widget: "string"}
-      - {label: "Imagine principală", name: "image", widget: "image"}
-      - {label: "Conținut", name: "body", widget: "markdown"}
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
