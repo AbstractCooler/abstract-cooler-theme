@@ -27,7 +27,9 @@
   "dependencies": {
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
+    "@astrojs/vercel": "^11.0.16",
     "astro": "^7.4.1",
+    "astro-decap-cms-oauth": "^0.6.0",
     "bulma": "^1.0.4"
   },
   "devDependencies": {
