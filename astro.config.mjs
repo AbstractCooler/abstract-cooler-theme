@@ -13,6 +13,7 @@ export default defineConfig({
     sitemap(),
     decapCmsOauth({
       decapCMSSrcUrl: 'https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js',
+      adminDisabled: true,
     }),
   ],
   vite: {
