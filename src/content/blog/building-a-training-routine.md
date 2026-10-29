@@ -1,5 +1,5 @@
 ---
-title: Abstract Cooler
+title: 'SCANDANDAL DIPLOMATIC ÎN CHINA: MBAPPÉ, BOICOTAT ȘI SCOS DE LA TELEVIZIOR DUPĂ O GLUMĂ CU MAO ZEDONG! 🇨🇳🛑'
 pubDate: 2026-10-29T14:38:00
 description: 'SCANDANDAL URIAȘ ÎN CHINA: Kylian Mbappé, cenzurat la televizor și abandonat de sponsori după o glumă virală cu Mao Zedong'
 image: /public/images/Abstract Summer Game Fest 2026 Poster (1).png
