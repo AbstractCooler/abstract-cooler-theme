@@ -3,16 +3,14 @@ import CtaBand from '../components/CtaBand.astro';
 import PageHero from '../components/PageHero.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { team, values } from '../data/team';
+import about from '../data/content/about.json';
 ---
 
-<BaseLayout
-  title="About"
-  description="Meet the team behind the gym and the principles that guide how we coach."
->
+<BaseLayout title={about.pageTitle} description={about.pageDescription}>
   <PageHero
-    eyebrow="About us"
-    title="Coaching over noise."
-    subtitle="We started in 2019 with one squat rack and a borrowed room. We have grown slowly, on purpose, and coaching quality still comes first."
+    eyebrow={about.heroEyebrow}
+    title={about.heroTitle}
+    subtitle={about.heroSubtitle}
     compact
   />
 
@@ -20,32 +18,16 @@ import { team, values } from '../data/team';
     <div class="container">
       <div class="columns is-vcentered">
         <div class="column is-7">
-          <h2 class="title is-2 mb-4">Why we exist</h2>
+          <h2 class="title is-2 mb-4">{about.whyTitle}</h2>
           <div class="content">
-            <p>
-              Most of us came to fitness after burning out on the version sold in
-              advertisements: perfect gym selfies, extreme challenges, and a lot of
-              quiet guilt when life got in the way.
-            </p>
-            <p>
-              We wanted something more useful. A place where a thirty-minute session
-              counts, where a week of missed training is information rather than
-              failure, and where the programme is built around your actual schedule.
-            </p>
-            <p>
-              Today we run group classes, one-to-one coaching, and recovery work.
-              Everything is designed to fit into an ordinary week — and to survive it.
-            </p>
+            {about.whyParagraphs.map((paragraph) => <p>{paragraph}</p>)}
           </div>
         </div>
         <div class="column is-5">
           <div class="box aw-hero-box">
-            <p class="aw-eyebrow mb-3">The short version</p>
+            <p class="aw-eyebrow mb-3">{about.shortTitle}</p>
             <ul class="content">
-              <li>Founded in 2019</li>
-              <li>Classes capped at sixteen people</li>
-              <li>No contracts — monthly or drop-in</li>
-              <li>Concession places in every class</li>
+              {about.shortItems.map((item) => <li>{item}</li>)}
             </ul>
           </div>
         </div>
@@ -56,8 +38,8 @@ import { team, values } from '../data/team';
   <section class="section aw-section aw-section-alt">
     <div class="container">
       <div class="aw-section-head">
-        <p class="aw-eyebrow mb-2">What guides us</p>
-        <h2 class="title is-2">Our values</h2>
+        <p class="aw-eyebrow mb-2">{about.valuesEyebrow}</p>
+        <h2 class="title is-2">{about.valuesTitle}</h2>
       </div>
 
       <div class="columns">
@@ -79,9 +61,9 @@ import { team, values } from '../data/team';
   <section class="section aw-section">
     <div class="container">
       <div class="aw-section-head">
-        <p class="aw-eyebrow mb-2">The team</p>
-        <h2 class="title is-2">Coaches on the floor every day</h2>
-        <p class="subtitle is-6">No faceless roster — these are the people you train with.</p>
+        <p class="aw-eyebrow mb-2">{about.teamEyebrow}</p>
+        <h2 class="title is-2">{about.teamTitle}</h2>
+        <p class="subtitle is-6">{about.teamSubtitle}</p>
       </div>
 
       <div class="columns">
@@ -105,9 +87,5 @@ import { team, values } from '../data/team';
     </div>
   </section>
 
-  <CtaBand
-    eyebrow="Come meet us"
-    title="The best way to decide is to visit."
-    text="Walk the floor, meet a coach, and ask every question you have. There is no pressure to sign up today."
-  />
+  <CtaBand eyebrow={about.ctaEyebrow} title={about.ctaTitle} text={about.ctaText} />
 </BaseLayout>
