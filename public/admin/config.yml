@@ -19,3 +19,20 @@ collections:
       - {label: "Descriere", name: "description", widget: "string"}
       - {label: "Imagine principală", name: "image", widget: "image"}
       - {label: "Conținut", name: "body", widget: "markdown"}
+
+  - name: "pagini"
+    label: "Pagini"
+    files:
+      - label: "Pagina principală"
+        name: "home"
+        file: "src/data/home.json"
+        fields:
+          - {label: "Titlu principal", name: "heroTitle", widget: "string"}
+          - {label: "Subtitlu", name: "heroSubtitle", widget: "text"}
+          - {label: "Text buton", name: "ctaText", widget: "string"}
+      - label: "Despre"
+        name: "about"
+        file: "src/data/about.json"
+        fields:
+          - {label: "Titlu", name: "title", widget: "string"}
+          - {label: "Conținut", name: "body", widget: "markdown"}
