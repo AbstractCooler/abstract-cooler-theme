@@ -1,30 +1,28 @@
 /**
  * Global site metadata and navigation.
- * Keeping this in one place avoids copy-pasted strings across layouts.
- * All values are template placeholders — edit them when you adopt the template.
+ * The values live in ./content/site.json and are edited from the CMS (/admin).
  */
-export const site = {
-  name: 'Astro Wellness',
-  tagline: 'Train hard. Recover smart.',
-  description:
-    'Astro Wellness is a modern gym for strength, conditioning, and recovery. Group classes, personal training, and nutrition coaching under one roof.',
-  // All contact details are placeholders — replace before going live.
-  email: 'hello@example.com',
-  phone: '+1 (555) 010-2030',
-  address: '123 Example Street · Example City, EX',
-  // Used by the sitemap and canonical URLs. Keep in sync with astro.config.mjs.
-  url: 'https://example.com',
-} as const;
+import data from './content/site.json';
 
 export interface NavItem {
   label: string;
   href: string;
 }
 
-export const navItems: NavItem[] = [
-  { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
-  { label: 'Services', href: '/services' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Contact', href: '/contact' },
-];
+export const navItems: NavItem[] = data.navItems;
+
+export const site = {
+  name: data.name,
+  tagline: data.tagline,
+  description: data.description,
+  email: data.email,
+  phone: data.phone,
+  address: data.address,
+  streetAddress: data.streetAddress,
+  addressLocality: data.addressLocality,
+  addressRegion: data.addressRegion,
+  addressCountry: data.addressCountry,
+  openingHours: data.openingHours,
+  // Used by the sitemap and canonical URLs. Keep in sync with astro.config.mjs.
+  url: data.url,
+};
