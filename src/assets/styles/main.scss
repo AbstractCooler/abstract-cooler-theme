@@ -7,6 +7,30 @@
 // `bulma/sass`, which compiles every component to ~690 KB of CSS). Keep the
 // import list in sync with the classes you actually use — the Perf/optimize
 // checklist greps for them.
+
+/* Abstract Cooler Theme - Red Palette Styles */
+:root {
+  --primary-color: #e11d48; /* Vibrant Modern Red */
+  --primary-hover: #be123c;
+  --bg-color: #0f172a;
+  --text-color: #f8fafc;
+  --accent-gray: #64748b;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  transition: background-color 0.2s ease;
+  &:hover {
+    background-color: var(--primary-hover);
+  }
+}
 @use 'bulma/sass/utilities' with (
   $primary: #ff6b35,
   $link: #ff6b35,
