@@ -1,30 +1,158 @@
-<html lang="ro">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Abstract Cooler</title>
-  </head>
-  <body class="bg-slate-950 text-slate-100 min-h-screen">
-    <NavBar />
-    
-    <main class="flex flex-col items-center justify-center min-h-[80vh] px-4 text-center">
-      <section class="max-w-3xl py-12">
-        <h1 class="text-5xl font-extrabold tracking-tight mb-6">
-          Welcome to <span class="text-rose-600">Abstract Cooler</span>
-        </h1>
-        <p class="text-xl text-slate-400 mb-8">
-          Than your average content. Modern, sleek, and powered by a striking red aesthetic.
-        </p>
-        <div class="flex gap-4 justify-center">
-          <a href="/services" class="bg-rose-600 hover:bg-rose-700 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition">
-            Explore Services
-          </a>
-          <a href="/contact" class="border border-slate-700 hover:bg-slate-800 px-6 py-3 rounded-lg font-semibold transition">
-            Get in Touch
-          </a>
+---
+import CtaBand from '../components/CtaBand.astro';
+import LatestPosts from '../components/LatestPosts.astro';
+import PageHero from '../components/PageHero.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { services } from '../data/services';
+import { site } from '../data/site';
+import home from '../data/content/home.json';
+import { linkAttrs } from '../utils/links';
+
+// Structured data: describe the site and link it to its Facebook page.
+const siteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: site.name,
+  description: site.description,
+  url: site.url,
+  inLanguage: 'ro',
+  sameAs: [site.facebookUrl],
+};
+
+const featuredServices = services.slice(0, 3);
+---
+
+<BaseLayout title={site.name} description={site.description} schema={siteSchema}>
+  <PageHero eyebrow={home.heroEyebrow} title={home.heroTitle} subtitle={home.heroSubtitle}>
+    <div class="buttons mt-5">
+      <a
+        class="button is-primary is-medium"
+        href={home.primaryButtonLink}
+        {...linkAttrs(home.primaryButtonLink)}
+      >
+        {home.primaryButtonLabel}
+      </a>
+      <a
+        class="button is-medium is-outlined"
+        href={home.secondaryButtonLink}
+        {...linkAttrs(home.secondaryButtonLink)}
+      >
+        {home.secondaryButtonLabel}
+      </a>
+    </div>
+
+    <Fragment slot="aside">
+      <div class="box aw-hero-box has-text-centered">
+        <img
+          class="aw-hero-logo"
+          src="/logo.png"
+          width="1000"
+          height="418"
+          alt={`${site.name} - ${site.tagline}`}
+        />
+        <p class="aw-form-note mt-4 mb-3">{home.asideNote}</p>
+        <a
+          class="button is-primary is-outlined"
+          href={site.facebookUrl}
+          {...linkAttrs(site.facebookUrl)}
+        >
+          {home.asideLinkLabel}
+        </a>
+      </div>
+    </Fragment>
+  </PageHero>
+
+  <section class="section aw-section" aria-label="Categorii principale">
+    <div class="container">
+      <div class="columns has-text-centered">
+        {
+          home.stats.map((stat) => (
+            <div class="column">
+              <span class="aw-stat-number">{stat.value}</span>
+              <span class="aw-stat-label">{stat.label}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section aw-section aw-section-alt">
+    <div class="container">
+      <div class="aw-section-head">
+        <p class="aw-eyebrow mb-2">{home.servicesEyebrow}</p>
+        <h2 class="title is-2">{home.servicesTitle}</h2>
+        <p class="subtitle is-6">{home.servicesSubtitle}</p>
+      </div>
+
+      <div class="columns">
+        {
+          featuredServices.map((service) => (
+            <div class="column is-4">
+              <ServiceCard {...service} />
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="has-text-centered mt-6">
+        <a class="button is-medium is-outlined" href="/services">{home.servicesButtonLabel}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section aw-section">
+    <div class="container">
+      <div class="columns is-vcentered">
+        <div class="column is-7">
+          <p class="aw-quote mb-4">“{home.quote}”</p>
+          <p class="has-text-weight-semibold">{home.quoteAuthor}</p>
         </div>
-      </section>
-    </main>
-  </body>
-</html>
+        <div class="column is-5 has-text-centered">
+          <a
+            class="button is-primary is-medium"
+            href={site.facebookUrl}
+            {...linkAttrs(site.facebookUrl)}
+          >
+            {home.quoteButtonLabel}
+          </a>
+          <p class="aw-form-note mt-3">{home.quoteButtonNote}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section aw-section aw-section-alt">
+    <div class="container">
+      <div class="aw-section-head">
+        <p class="aw-eyebrow mb-2">{home.whyEyebrow}</p>
+        <h2 class="title is-2">{home.whyTitle}</h2>
+        <p class="subtitle is-6">{home.whySubtitle}</p>
+      </div>
+
+      <div class="columns">
+        {
+          home.whyCards.map((card, index) => (
+            <div class="column is-4">
+              <div class="box aw-card">
+                <p class="aw-value-number mb-2">{String(index + 1).padStart(2, '0')}</p>
+                <h3 class="title is-5">{card.title}</h3>
+                <p>{card.text}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <LatestPosts />
+
+  <CtaBand
+    eyebrow={home.ctaEyebrow}
+    title={home.ctaTitle}
+    text={home.ctaText}
+    ctaLabel={home.ctaLabel}
+  />
+</BaseLayout>

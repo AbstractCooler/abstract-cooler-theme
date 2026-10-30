@@ -2,7 +2,6 @@
 import CtaBand from '../components/CtaBand.astro';
 import PageHero from '../components/PageHero.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { team, values } from '../data/team';
 import about from '../data/content/about.json';
 ---
 
@@ -44,7 +43,7 @@ import about from '../data/content/about.json';
 
       <div class="columns">
         {
-          values.map((value, index) => (
+          about.values.map((value, index) => (
             <div class="column is-4">
               <div class="box aw-card">
                 <p class="aw-value-number mb-2">{String(index + 1).padStart(2, '0')}</p>
@@ -61,24 +60,19 @@ import about from '../data/content/about.json';
   <section class="section aw-section">
     <div class="container">
       <div class="aw-section-head">
-        <p class="aw-eyebrow mb-2">{about.teamEyebrow}</p>
-        <h2 class="title is-2">{about.teamTitle}</h2>
-        <p class="subtitle is-6">{about.teamSubtitle}</p>
+        <p class="aw-eyebrow mb-2">{about.joinEyebrow}</p>
+        <h2 class="title is-2">{about.joinTitle}</h2>
+        <p class="subtitle is-6">{about.joinSubtitle}</p>
       </div>
 
       <div class="columns">
         {
-          team.map((member) => (
-            <div class="column is-3">
+          about.joinSteps.map((step, index) => (
+            <div class="column is-4">
               <div class="box aw-card">
-                <div class="is-flex is-align-items-center mb-4">
-                  <span class="aw-avatar mr-4" aria-hidden="true">{member.initials}</span>
-                  <div>
-                    <h3 class="title is-5 mb-1">{member.name}</h3>
-                    <p class="aw-form-note">{member.role}</p>
-                  </div>
-                </div>
-                <p>{member.bio}</p>
+                <p class="aw-value-number mb-2">{String(index + 1).padStart(2, '0')}</p>
+                <h3 class="title is-5">{step.title}</h3>
+                <p>{step.text}</p>
               </div>
             </div>
           ))
@@ -87,5 +81,10 @@ import about from '../data/content/about.json';
     </div>
   </section>
 
-  <CtaBand eyebrow={about.ctaEyebrow} title={about.ctaTitle} text={about.ctaText} />
+  <CtaBand
+    eyebrow={about.ctaEyebrow}
+    title={about.ctaTitle}
+    text={about.ctaText}
+    ctaLabel={about.ctaLabel}
+  />
 </BaseLayout>
