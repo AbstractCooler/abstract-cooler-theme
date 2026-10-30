@@ -1,0 +1,39 @@
+{
+  "heroEyebrow": "Then your averange content",
+  "heroTitle": "Abstract Cooler",
+  "heroSubtitle": "Blogul tau de filme si jocuri",
+  "primaryButtonLabel": "Mai mult",
+  "primaryButtonLink": "Mai mult",
+  "secondaryButtonLabel": "Mai mult",
+  "secondaryButtonLink": "Mai mult",
+  "classesTitle": "Mai mult",
+  "classes": [
+    {
+      "time": "16:53",
+      "name": "Alex"
+    }
+  ],
+  "classesNote": "Test",
+  "stats": [
+    {
+      "value": "1",
+      "label": "1"
+    }
+  ],
+  "servicesEyebrow": "1",
+  "servicesTitle": "1",
+  "servicesSubtitle": "1",
+  "servicesButtonLabel": "1",
+  "quote": "1",
+  "quoteAuthor": "1",
+  "quoteButtonLabel": "1",
+  "quoteButtonNote": "1",
+  "testimonialsEyebrow": "1",
+  "testimonialsTitle": "1",
+  "testimonialsSubtitle": "1",
+  "ctaEyebrow": "1",
+  "ctaTitle": "1",
+  "ctaText": "1",
+  "ctaLabel": "1",
+  "ctaLink": "1"
+}
