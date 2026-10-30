@@ -1,39 +1,46 @@
 {
-  "heroEyebrow": "Then your averange content",
-  "heroTitle": "Abstract Cooler",
-  "heroSubtitle": "Blogul tau de filme si jocuri",
-  "primaryButtonLabel": "Mai mult",
-  "primaryButtonLink": "Mai mult",
-  "secondaryButtonLabel": "Mai mult",
-  "secondaryButtonLink": "Mai mult",
-  "classesTitle": "Mai mult",
-  "classes": [
-    {
-      "time": "16:53",
-      "name": "Alex"
-    }
-  ],
-  "classesNote": "Test",
+  "heroEyebrow": "Gaming · Tech · Cinema",
+  "heroTitle": "Hub-ul tău de gaming, tech și cinematografie! 🎮 🍿",
+  "heroSubtitle": "Revenim în forță cu cele mai proaspete știri, recenzii, meme-uri și noutăți din tehnologie. Alătură-te comunității Abstract Cooler!",
+  "primaryButtonLabel": "Urmărește-ne pe Facebook",
+  "primaryButtonLink": "https://www.facebook.com/AbstractCooler",
+  "secondaryButtonLabel": "Citește blogul",
+  "secondaryButtonLink": "/blog",
+  "asideNote": "Tot ce postăm, într-un singur loc: pagina noastră de Facebook.",
+  "asideLinkLabel": "Vezi pagina de Facebook",
   "stats": [
+    { "value": "🎮", "label": "Gaming" },
+    { "value": "💻", "label": "Tech" },
+    { "value": "🎬", "label": "Cinema și seriale" },
+    { "value": "😂", "label": "Meme-uri" }
+  ],
+  "servicesEyebrow": "Ce găsești la noi",
+  "servicesTitle": "Tot ce ne pasionează, într-un singur loc",
+  "servicesSubtitle": "De la lansări de jocuri și gadgeturi noi până la filme de văzut în weekend și meme-uri care chiar te fac să râzi.",
+  "servicesButtonLabel": "Vezi toate categoriile",
+  "quote": "Nu suntem încă o pagină care repetă același titlu. Aici găsești păreri sincere, recenzii pe înțelesul tuturor și suficiente meme-uri cât să-ți meargă ziua mai bine.",
+  "quoteAuthor": "Echipa Abstract Cooler",
+  "quoteButtonLabel": "Alătură-te comunității",
+  "quoteButtonNote": "Un click pe Facebook și ești la zi cu tot ce se întâmplă.",
+  "whyEyebrow": "De ce Abstract Cooler",
+  "whyTitle": "Mai mult decât o pagină de știri",
+  "whySubtitle": "Trei motive ca să ne urmărești.",
+  "whyCards": [
     {
-      "value": "1",
-      "label": "1"
+      "title": "Noutăți la zi",
+      "text": "Urmărim ce se întâmplă în gaming, tech și film, ca tu să nu ratezi nimic important."
+    },
+    {
+      "title": "Păreri sincere",
+      "text": "Recenzii și opinii fără limbaj de lemn, scrise de pasionați, pentru pasionați."
+    },
+    {
+      "title": "Comunitate și umor",
+      "text": "Meme-uri, discuții și bună dispoziție: aici e loc pentru toți cei care iubesc jocurile, gadgeturile și filmele."
     }
   ],
-  "servicesEyebrow": "1",
-  "servicesTitle": "1",
-  "servicesSubtitle": "1",
-  "servicesButtonLabel": "1",
-  "quote": "1",
-  "quoteAuthor": "1",
-  "quoteButtonLabel": "1",
-  "quoteButtonNote": "1",
-  "testimonialsEyebrow": "1",
-  "testimonialsTitle": "1",
-  "testimonialsSubtitle": "1",
-  "ctaEyebrow": "1",
-  "ctaTitle": "1",
-  "ctaText": "1",
-  "ctaLabel": "1",
-  "ctaLink": "1"
+  "ctaEyebrow": "Hai în comunitate",
+  "ctaTitle": "Alătură-te comunității Abstract Cooler!",
+  "ctaText": "Urmărește pagina noastră de Facebook pentru cele mai proaspete știri, recenzii, meme-uri și noutăți din tehnologie.",
+  "ctaLabel": "Urmărește-ne pe Facebook"
 }

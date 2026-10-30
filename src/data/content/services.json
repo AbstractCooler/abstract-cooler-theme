@@ -1,0 +1,51 @@
+{
+  "pageTitle": "Categorii",
+  "pageDescription": "Gaming, tech, cinema, meme-uri, recenzii și comunitate: tot ce găsești pe Abstract Cooler.",
+  "heroEyebrow": "Categorii",
+  "heroTitle": "Tot ce găsești pe Abstract Cooler.",
+  "heroSubtitle": "Gaming, tech, cinema, meme-uri și multe altele. Alege ce te pasionează sau ia-le pe toate.",
+  "sectionEyebrow": "Ce acoperim",
+  "sectionTitle": "Categoriile noastre",
+  "ctaEyebrow": "Nu știi de unde să începi?",
+  "ctaTitle": "Începe cu pagina de Facebook.",
+  "ctaText": "Acolo postăm tot: de la noutăți și recenzii până la meme-uri. Urmărește-ne și alege-ți categoriile preferate din feed.",
+  "ctaLabel": "Urmărește-ne pe Facebook",
+  "items": [
+    {
+      "title": "🎮 Gaming",
+      "description": "Știri din industrie, lansări, recenzii și evenimente pentru gameri de toate felurile.",
+      "details": ["Noutăți și lansări", "Recenzii de jocuri", "Evenimente și showcase-uri"],
+      "format": "PC · Console · Mobil"
+    },
+    {
+      "title": "💻 Tech",
+      "description": "Gadgeturi, hardware, software și tendințe din tehnologie, explicate pe înțeles.",
+      "details": ["Gadgeturi și hardware", "Noutăți din software și AI", "Ghiduri de cumpărare"],
+      "format": "Noutăți · Ghiduri · Păreri"
+    },
+    {
+      "title": "🎬 Cinema și seriale",
+      "description": "Filme noi și clasice, seriale de urmărit și recomandări pentru serile în care nu știi ce să vezi.",
+      "details": ["Filme noi și clasice", "Seriale de urmărit", "Recomandări pentru weekend"],
+      "format": "Filme · Seriale · Recenzii"
+    },
+    {
+      "title": "😂 Meme-uri",
+      "description": "Umor din lumea gaming-ului, a tehnologiei și a filmelor, pentru zilele în care ai nevoie de un zâmbet.",
+      "details": ["Meme-uri proaspete", "Glume pe care le înțeleg doar pasionații", "Bune de trimis prietenilor"],
+      "format": "Pe pagina de Facebook"
+    },
+    {
+      "title": "⭐ Recenzii",
+      "description": "Păreri pe larg despre jocuri, filme și gadgeturi: ce merită, ce nu și pentru cine.",
+      "details": ["Verdict clar", "Plusuri și minusuri", "Fără limbaj de lemn"],
+      "format": "Pe blog și pe Facebook"
+    },
+    {
+      "title": "🤝 Comunitate",
+      "description": "Un loc în care pasionații discută, își dau cu părerea și descoperă lucruri noi împreună.",
+      "details": ["Discuții în comentarii", "Recomandări de la cititori", "Loc pentru toți pasionații"],
+      "format": "Deschisă tuturor"
+    }
+  ]
+}

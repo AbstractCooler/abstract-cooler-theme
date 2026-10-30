@@ -1,0 +1,57 @@
+{
+  "pageTitle": "Despre noi",
+  "pageDescription": "Află cine suntem, ce găsești pe Abstract Cooler și cum te poți alătura comunității de pasionați de gaming, tech și cinematografie.",
+  "heroEyebrow": "Despre noi",
+  "heroTitle": "Mai cool decât conținutul tău obișnuit.",
+  "heroSubtitle": "Abstract Cooler este un hub pentru oameni care iubesc jocurile, tehnologia și filmele, cu știri, recenzii și meme-uri într-un singur loc.",
+  "whyTitle": "Cine suntem",
+  "whyParagraphs": [
+    "Abstract Cooler este locul în care gaming-ul, tehnologia și cinematografia se întâlnesc, fără limbaj de lemn și fără titluri făcute doar pentru click.",
+    "Aici găsești cele mai proaspete știri, recenzii, meme-uri și noutăți din tehnologie, spuse pe înțelesul tuturor. Fie că ești gamer, pasionat de gadgeturi sau cinefil, ai ceva de citit, de văzut și de râs.",
+    "Tot ce postăm îl găsești pe pagina noastră de Facebook, iar aici, pe site, adunăm articolele mai ample: ghiduri, liste și opinii pe care merită să le ai la îndemână."
+  ],
+  "shortTitle": "Pe scurt",
+  "shortItems": [
+    "Gaming, tech și cinematografie într-un singur loc",
+    "Știri, recenzii, meme-uri și noutăți",
+    "Tot contentul postat, pe pagina de Facebook",
+    "O comunitate deschisă tuturor pasionaților"
+  ],
+  "valuesEyebrow": "Ce ne ghidează",
+  "valuesTitle": "Valorile noastre",
+  "values": [
+    {
+      "title": "Pasiune înainte de clickbait",
+      "description": "Scriem despre ce ne place cu adevărat și ne străduim ca fiecare titlu să promită doar ce livrează articolul."
+    },
+    {
+      "title": "Păreri sincere",
+      "description": "Spunem ce credem despre un joc, un film sau un gadget, cu argumente, dar fără aroganță. Nu trebuie să fii de acord cu noi ca să fii binevenit."
+    },
+    {
+      "title": "Comunitatea pe primul loc",
+      "description": "Fără gatekeeping: indiferent dacă joci pe PC, consolă sau telefon, ești în locul potrivit. Umorul este binevenit, răutatea nu."
+    }
+  ],
+  "joinEyebrow": "Alătură-te",
+  "joinTitle": "Cum intri în comunitate",
+  "joinSubtitle": "Durează mai puțin decât o rundă rapidă de joc.",
+  "joinSteps": [
+    {
+      "title": "Urmărește pagina",
+      "text": "Dă follow paginii Abstract Cooler de pe Facebook, ca să vezi cele mai noi postări."
+    },
+    {
+      "title": "Intră în discuții",
+      "text": "Lasă un comentariu, dă un share sau spune-ne ce ți-a plăcut. Părerea ta contează."
+    },
+    {
+      "title": "Revino pe blog",
+      "text": "Pentru ghiduri, liste și articole mai ample, ne găsești aici, pe site, la secțiunea Blog."
+    }
+  ],
+  "ctaEyebrow": "Hai cu noi",
+  "ctaTitle": "Pagina de Facebook te așteaptă.",
+  "ctaText": "Vino să vezi ce postăm și spune-ne ce ți-ar plăcea să găsești mai des pe Abstract Cooler.",
+  "ctaLabel": "Urmărește-ne pe Facebook"
+}
