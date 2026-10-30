@@ -28,7 +28,7 @@ const fontUrl =
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="ro">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -66,6 +66,7 @@ const fontUrl =
     <link rel="canonical" href={canonical} />
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={site.name} />
+    <meta property="og:locale" content="ro_RO" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
@@ -83,8 +84,8 @@ const fontUrl =
       href={new URL('/rss.xml', Astro.site)}
     />
 
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
     <title>{pageTitle}</title>
 
     <ClientRouter />
@@ -96,7 +97,7 @@ const fontUrl =
     }
   </head>
   <body>
-    <a class="aw-skip-link" href="#main-content">Skip to main content</a>
+    <a class="aw-skip-link" href="#main-content">Sari la conținutul principal</a>
     <NavBar />
     <main id="main-content">
       <slot />
