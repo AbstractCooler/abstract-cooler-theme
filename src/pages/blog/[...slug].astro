@@ -2,6 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../data/site';
 import { formatDate } from '../../utils/date';
 import { readingTime } from '../../utils/reading-time';
 
@@ -31,7 +32,8 @@ const postSchema = {
     dateModified: post.data.updatedDate.toISOString(),
   }),
   url: canonical,
-  author: { '@type': 'Organization', name: 'Astro Wellness' },
+  inLanguage: 'ro',
+  author: { '@type': 'Organization', name: site.name },
 };
 ---
 
@@ -62,7 +64,7 @@ const postSchema = {
       </article>
 
       <p class="mt-6">
-        <a href="/blog">← Back to all posts</a>
+        <a href="/blog">← Înapoi la toate articolele</a>
       </p>
     </div>
   </section>
