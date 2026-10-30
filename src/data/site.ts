@@ -16,13 +16,8 @@ export const site = {
   tagline: data.tagline,
   description: data.description,
   email: data.email,
-  phone: data.phone,
-  address: data.address,
-  streetAddress: data.streetAddress,
-  addressLocality: data.addressLocality,
-  addressRegion: data.addressRegion,
-  addressCountry: data.addressCountry,
-  openingHours: data.openingHours,
+  facebookUrl: data.facebookUrl,
+  ctaLabel: data.ctaLabel,
   // Used by the sitemap and canonical URLs. Keep in sync with astro.config.mjs.
   url: data.url,
 };
