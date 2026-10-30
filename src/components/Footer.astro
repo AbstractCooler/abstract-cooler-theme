@@ -1,6 +1,6 @@
 ---
 import { navItems, site } from '../data/site';
-import { telHref } from '../utils/phone';
+import { linkAttrs } from '../utils/links';
 
 const year = new Date().getFullYear();
 ---
@@ -14,7 +14,7 @@ const year = new Date().getFullYear();
       </div>
 
       <div class="column is-3">
-        <p class="has-text-weight-semibold mb-3">Explore</p>
+        <p class="has-text-weight-semibold mb-3">Navigare</p>
         <ul>
           {
             navItems.map((item) => (
@@ -27,19 +27,22 @@ const year = new Date().getFullYear();
       </div>
 
       <div class="column is-4">
-        <p class="has-text-weight-semibold mb-3">Visit</p>
-        <p class="mb-1">{site.address}</p>
+        <p class="has-text-weight-semibold mb-3">Urmărește-ne</p>
         <p class="mb-1">
-          <a href={`mailto:${site.email}`}>{site.email}</a>
+          <a href={site.facebookUrl} {...linkAttrs(site.facebookUrl)}>Facebook · Abstract Cooler</a>
         </p>
-        <p>
-          <a href={telHref(site.phone)}>{site.phone}</a>
-        </p>
+        {
+          site.email && (
+            <p>
+              <a href={`mailto:${site.email}`}>{site.email}</a>
+            </p>
+          )
+        }
       </div>
     </div>
 
     <hr />
 
-    <p class="is-size-7">© {year} {site.name}. Built with Astro and Bulma.</p>
+    <p class="is-size-7">© {year} {site.name}. Toate drepturile rezervate.</p>
   </div>
 </footer>
