@@ -2,5 +2,5 @@
 User-agent: *
 Allow: /
 
-# TODO: replace example.com with your real domain when you deploy.
-Sitemap: https://example.com/sitemap-index.xml
+# Cand ai un domeniu propriu, schimba adresa de mai jos.
+Sitemap: https://abstract-cooler-theme.vercel.app/sitemap-index.xml
