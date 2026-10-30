@@ -1,142 +1,21 @@
 ---
-import CtaBand from '../components/CtaBand.astro';
-import LatestPosts from '../components/LatestPosts.astro';
-import PageHero from '../components/PageHero.astro';
-import ServiceCard from '../components/ServiceCard.astro';
-import TestimonialCard from '../components/TestimonialCard.astro';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { services } from '../data/services';
-import { site } from '../data/site';
-import { testimonials } from '../data/testimonials';
-import home from '../data/content/home.json';
-
-// Structured data: recognise the business as a local gym / health club.
-const healthClubSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'HealthClub',
-  name: site.name,
-  description: site.description,
-  url: site.url,
-  email: site.email,
-  telephone: site.phone,
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: site.streetAddress,
-    addressLocality: site.addressLocality,
-    addressRegion: site.addressRegion,
-    addressCountry: site.addressCountry,
-  },
-  openingHours: site.openingHours,
-};
-
-const featuredServices = services.slice(0, 3);
+import Layout from '../layouts/Layout.astro';
+import NavBar from '../components/NavBar.astro';
 ---
-
-<BaseLayout title={site.name} description={site.description} schema={healthClubSchema}>
-  <PageHero eyebrow={home.heroEyebrow} title={home.heroTitle} subtitle={home.heroSubtitle}>
-    <div class="buttons mt-5">
-      <a class="button is-primary is-medium" href={home.primaryButtonLink}>{home.primaryButtonLabel}</a>
-      <a class="button is-medium is-outlined" href={home.secondaryButtonLink}>{home.secondaryButtonLabel}</a>
-    </div>
-
-    <Fragment slot="aside">
-      <div class="box aw-hero-box">
-        <p class="aw-eyebrow mb-3">{home.classesTitle}</p>
-        <ul class="content">
-          {
-            home.classes.map((item) => (
-              <li>
-                <strong>{item.time}</strong> — {item.name}
-              </li>
-            ))
-          }
-        </ul>
-        <p class="aw-form-note mt-4">{home.classesNote}</p>
+<Layout title="Abstract Cooler">
+  <NavBar />
+  <main class="flex flex-col items-center justify-center min-h-screen px-4">
+    <section class="text-center max-w-3xl py-20">
+      <h1 class="text-5xl font-extrabold tracking-tight mb-6">
+        Welcome to <span class="text-rose-600">Abstract Cooler</span>
+      </h1>
+      <p class="text-xl text-slate-400 mb-8">
+        Than your average content. Modern, sleek, and powered by a striking red aesthetic.
+      </p>
+      <div class="flex gap-4 justify-center">
+        <a href="/services" class="btn-primary px-6 py-3 rounded-lg font-semibold shadow-lg">Explore Services</a>
+        <a href="/contact" class="border border-slate-700 px-6 py-3 rounded-lg font-semibold hover:bg-slate-800 transition">Get in Touch</a>
       </div>
-    </Fragment>
-  </PageHero>
-
-  <section class="section aw-section" aria-label="Gym statistics">
-    <div class="container">
-      <div class="columns has-text-centered">
-        {
-          home.stats.map((stat) => (
-            <div class="column">
-              <span class="aw-stat-number">{stat.value}</span>
-              <span class="aw-stat-label">{stat.label}</span>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <section class="section aw-section aw-section-alt">
-    <div class="container">
-      <div class="aw-section-head">
-        <p class="aw-eyebrow mb-2">{home.servicesEyebrow}</p>
-        <h2 class="title is-2">{home.servicesTitle}</h2>
-        <p class="subtitle is-6">{home.servicesSubtitle}</p>
-      </div>
-
-      <div class="columns">
-        {
-          featuredServices.map((service) => (
-            <div class="column is-4">
-              <ServiceCard {...service} />
-            </div>
-          ))
-        }
-      </div>
-
-      <div class="has-text-centered mt-6">
-        <a class="button is-medium is-outlined" href="/services">{home.servicesButtonLabel}</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section aw-section">
-    <div class="container">
-      <div class="columns is-vcentered">
-        <div class="column is-7">
-          <p class="aw-quote mb-4">“{home.quote}”</p>
-          <p class="has-text-weight-semibold">{home.quoteAuthor}</p>
-        </div>
-        <div class="column is-5 has-text-centered">
-          <a class="button is-primary is-medium" href="/contact">{home.quoteButtonLabel}</a>
-          <p class="aw-form-note mt-3">{home.quoteButtonNote}</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section aw-section aw-section-alt">
-    <div class="container">
-      <div class="aw-section-head">
-        <p class="aw-eyebrow mb-2">{home.testimonialsEyebrow}</p>
-        <h2 class="title is-2">{home.testimonialsTitle}</h2>
-        <p class="subtitle is-6">{home.testimonialsSubtitle}</p>
-      </div>
-
-      <div class="columns">
-        {
-          testimonials.map((testimonial) => (
-            <div class="column is-4">
-              <TestimonialCard {...testimonial} />
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <LatestPosts />
-
-  <CtaBand
-    eyebrow={home.ctaEyebrow}
-    title={home.ctaTitle}
-    text={home.ctaText}
-    ctaLabel={home.ctaLabel}
-    ctaHref={home.ctaLink}
-  />
-</BaseLayout>
+    </section>
+  </main>
+</Layout>
