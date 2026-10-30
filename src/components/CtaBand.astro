@@ -1,4 +1,7 @@
 ---
+import { site } from '../data/site';
+import { linkAttrs } from '../utils/links';
+
 interface Props {
   eyebrow?: string;
   title: string;
@@ -7,7 +10,13 @@ interface Props {
   ctaHref?: string;
 }
 
-const { eyebrow, title, text, ctaLabel = 'Book a free class', ctaHref = '/contact' } = Astro.props;
+const {
+  eyebrow,
+  title,
+  text,
+  ctaLabel = site.ctaLabel,
+  ctaHref = site.facebookUrl,
+} = Astro.props;
 ---
 
 <section class="section aw-section">
@@ -16,7 +25,7 @@ const { eyebrow, title, text, ctaLabel = 'Book a free class', ctaHref = '/contac
       {eyebrow && <p class="aw-eyebrow mb-3">{eyebrow}</p>}
       <h2 class="title is-2 mb-3">{title}</h2>
       {text && <p class="subtitle is-5 mb-5 aw-cta-text">{text}</p>}
-      <a class="button is-primary is-large" href={ctaHref}>{ctaLabel}</a>
+      <a class="button is-primary is-large" href={ctaHref} {...linkAttrs(ctaHref)}>{ctaLabel}</a>
     </div>
   </div>
 </section>
