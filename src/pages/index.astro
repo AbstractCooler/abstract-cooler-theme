@@ -11,6 +11,7 @@
 //  - Comentariile de forma {/* ... */} nu apar pe site, sunt doar pentru tine.
 // ============================================================================
 import CtaBand from '../components/CtaBand.astro';
+import InstagramIcon from '../components/InstagramIcon.astro';
 import LatestPosts from '../components/LatestPosts.astro';
 import PageHero from '../components/PageHero.astro';
 import ServiceCard from '../components/ServiceCard.astro';
@@ -29,7 +30,7 @@ const siteSchema = {
   description: site.description,
   url: site.url,
   inLanguage: 'ro',
-  sameAs: [site.facebookUrl],
+  sameAs: [site.facebookUrl, site.instagramUrl].filter(Boolean),
 };
 
 // Cardurile din sectiunea "Ce gasesti la noi" sunt primele 3 categorii din
@@ -48,7 +49,7 @@ const featuredServices = services.slice(0, 3);
     ==========================================================================
   */}
   <PageHero eyebrow={home.heroEyebrow} title={home.heroTitle} subtitle={home.heroSubtitle}>
-    {/* Cele doua butoane de sub subtitlu: primul (rosu) duce la Facebook, al doilea (contur) la blog. */}
+    {/* Butoanele de sub subtitlu: primul (rosu) duce la Facebook, al doilea (contur) la blog, al treilea la Instagram. */}
     <div class="buttons mt-5">
       <a
         class="button is-primary is-medium"
@@ -64,6 +65,19 @@ const featuredServices = services.slice(0, 3);
       >
         {home.secondaryButtonLabel}
       </a>
+      {/* Butonul Instagram apare doar daca ai pus linkul in /admin > Setari site. */}
+      {
+        site.instagramUrl && (
+          <a
+            class="button is-medium is-outlined"
+            href={site.instagramUrl}
+            {...linkAttrs(site.instagramUrl)}
+          >
+            <InstagramIcon class="mr-2" />
+            Instagram
+          </a>
+        )
+      }
     </div>
 
     {/*
@@ -131,13 +145,24 @@ const featuredServices = services.slice(0, 3);
 
   {/*
     ==========================================================================
-    SECTIUNEA 3 - CITATUL (o propozitie mare, cu bara rosie in stanga)
+    SECTIUNEA 3 - ULTIMELE ARTICOLE (primele 3 articole de pe blog, automat)
+    Nu o editezi aici: se umple singura cu cele mai noi articole din
+    /admin → Articole Blog. Titlul sectiunii: /admin → Pagini → Blog
+    (texte pagina), campurile "Pagina principala - ...".
+    Componenta: src/components/LatestPosts.astro
+    ==========================================================================
+  */}
+  <LatestPosts />
+
+  {/*
+    ==========================================================================
+    SECTIUNEA 4 - CITATUL (o propozitie mare, cu bara rosie in stanga)
     Stanga: citatul si semnatura. Dreapta: buton rosu spre Facebook + o nota.
     Texte: campurile "Citat ..." din Pagina principala.
     Ca sa o stergi: sterge de la acest comentariu pana la inchiderea sectiunii (inainte de urmatorul comentariu SECTIUNEA).
     ==========================================================================
   */}
-  <section class="section aw-section">
+  <section class="section aw-section aw-section-alt">
     <div class="container">
       <div class="columns is-vcentered">
         <div class="column is-7">
@@ -160,14 +185,14 @@ const featuredServices = services.slice(0, 3);
 
   {/*
     ==========================================================================
-    SECTIUNEA 4 - "DE CE ABSTRACT COOLER" (fundal usor diferit, 3 casete numerotate)
+    SECTIUNEA 5 - "DE CE ABSTRACT COOLER" (fundal usor diferit, 3 casete numerotate)
     Titlu + subtitlu, apoi trei casete: 01, 02, 03, fiecare cu titlu si text.
     Texte: campurile "De ce noi - ..." din Pagina principala (casetele sunt
     in lista "De ce noi - casete": poti adauga sau sterge casete de acolo).
     Ca sa o stergi: sterge de la acest comentariu pana la inchiderea sectiunii (inainte de urmatorul comentariu SECTIUNEA).
     ==========================================================================
   */}
-  <section class="section aw-section aw-section-alt">
+  <section class="section aw-section">
     <div class="container">
       <div class="aw-section-head">
         <p class="aw-eyebrow mb-2">{home.whyEyebrow}</p>
@@ -190,17 +215,6 @@ const featuredServices = services.slice(0, 3);
       </div>
     </div>
   </section>
-
-  {/*
-    ==========================================================================
-    SECTIUNEA 5 - ULTIMELE ARTICOLE (primele 3 articole de pe blog, automat)
-    Nu o editezi aici: se umple singura cu cele mai noi articole din
-    /admin → Articole Blog. Titlul sectiunii: /admin → Pagini → Blog
-    (texte pagina), campurile "Pagina principala - ...".
-    Componenta: src/components/LatestPosts.astro
-    ==========================================================================
-  */}
-  <LatestPosts />
 
   {/*
     ==========================================================================
