@@ -17,6 +17,8 @@ export const site = {
   description: data.description,
   email: data.email,
   facebookUrl: data.facebookUrl,
+  // Optional: set it from /admin > Setari site. Empty = the Instagram buttons stay hidden.
+  instagramUrl: (data as { instagramUrl?: string }).instagramUrl ?? '',
   ctaLabel: data.ctaLabel,
   // Used by the sitemap and canonical URLs. Keep in sync with astro.config.mjs.
   url: data.url,
