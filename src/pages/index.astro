@@ -38,9 +38,10 @@ const siteSchema = {
 // /admin → Pagini → Categorii. Schimba 3 cu alt numar ca sa arati mai multe/putine.
 const featuredServices = services.slice(0, 3);
 
-// Preluăm primele 15 articole de pe blog, sortate de la cel mai nou la cel mai vechi
+// Preluăm primele 15 articole de pe blog în mod sigur (filtrând intrările fără dată)
 const allPosts = await getCollection('blog');
 const latestPosts = allPosts
+  .filter((post) => post.data && post.data.date)
   .sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf())
   .slice(0, 15);
 ---
