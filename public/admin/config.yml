@@ -9,7 +9,7 @@ media_folder: "public/images"
 public_path: "/images"
 
 # Logo afisat pe ecranul de login din /admin
-logo_url: https://abstract-cooler-theme.vercel.app/logo_abstract_cooler.png
+logo_url: https://abstract-cooler-theme.vercel.app/logo.png
 
 collections:
   - name: "blog"
@@ -45,12 +45,6 @@ collections:
           - {label: "Buton secundar - link", name: "secondaryButtonLink", widget: "string"}
           - {label: "Caseta cu logo - text", name: "asideNote", widget: "string"}
           - {label: "Caseta cu logo - text buton", name: "asideLinkLabel", widget: "string"}
-          - label: "Bara de categorii (emoji + nume)"
-            name: "stats"
-            widget: "list"
-            fields:
-              - {label: "Emoji", name: "value", widget: "string"}
-              - {label: "Nume", name: "label", widget: "string"}
           - {label: "Categorii - text mic", name: "servicesEyebrow", widget: "string"}
           - {label: "Categorii - titlu", name: "servicesTitle", widget: "string"}
           - {label: "Categorii - subtitlu", name: "servicesSubtitle", widget: "text"}
