@@ -125,9 +125,31 @@ main {
 
 /* ------------------------------- Navbar ------------------------------- */
 
+// Header lipit de marginea de sus a ecranului cat timp derulezi pagina (sticky).
+body > header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
+
 .aw-navbar {
-  background-color: color-mix(in srgb, var(--aw-ink) 92%, transparent);
+  // Efect "glass": suprafata semi-transparenta + blur peste ce trece pe dedesubt.
+  // Pentru mai multa transparenta scade 68% (ex. 55%); pentru mai putina, creste-l.
+  background-color: color-mix(in srgb, var(--aw-ink) 68%, transparent);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  backdrop-filter: blur(14px) saturate(160%);
   border-bottom: 1px solid var(--aw-border);
+
+  // Browserele fara backdrop-filter primesc o bara aproape opaca, ca textul sa ramana lizibil.
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    background-color: color-mix(in srgb, var(--aw-ink) 96%, transparent);
+  }
+
+  // Meniul deschis pe telefon ramane transparent: se vede glass-ul barei.
+  .navbar-menu {
+    background-color: transparent;
+    box-shadow: none;
+  }
 
   .navbar-item,
   .navbar-burger {
@@ -144,6 +166,13 @@ main {
     background-color: transparent;
     color: var(--aw-accent);
     box-shadow: inset 0 -2px 0 var(--aw-accent);
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .aw-navbar .navbar-menu {
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
   }
 }
 
@@ -657,6 +686,8 @@ main {
 
 html {
   scroll-behavior: smooth;
+  // Spatiu pentru bara sticky cand sari la o ancora (#...).
+  scroll-padding-top: 4.5rem;
 }
 
 // Simple fade for <ClientRouter /> SPA navigation (from studio-pulse).
