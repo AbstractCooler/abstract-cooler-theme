@@ -4,13 +4,29 @@
   "description": "Abstract Cooler este hub-ul tău de gaming, tech și cinematografie: știri, recenzii, meme-uri și noutăți din tehnologie, într-o comunitate de pasionați.",
   "email": "",
   "facebookUrl": "https://www.facebook.com/AbstractCooler",
+  "instagramUrl": "https://www.instagram.com/abstract.cooler/",
   "ctaLabel": "Urmărește-ne pe Facebook",
   "url": "https://abstract-cooler-theme.vercel.app",
   "navItems": [
-    { "label": "Acasă", "href": "/" },
-    { "label": "Despre noi", "href": "/about" },
-    { "label": "Categorii", "href": "/services" },
-    { "label": "Blog", "href": "/blog" },
-    { "label": "Contact", "href": "/contact" }
+    {
+      "label": "Acasă",
+      "href": "/"
+    },
+    {
+      "label": "Despre noi",
+      "href": "/about"
+    },
+    {
+      "label": "Categorii",
+      "href": "/services"
+    },
+    {
+      "label": "Blog",
+      "href": "/blog"
+    },
+    {
+      "label": "Contact",
+      "href": "/contact"
+    }
   ]
 }
