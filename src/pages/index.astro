@@ -1,4 +1,15 @@
 ---
+// ============================================================================
+// PAGINA PRINCIPALA (acasa) - fisierul acesta construieste https://.../
+//
+// Cum e organizat:
+//  - Partea dintre cele doua linii "---" (aici) = importuri si date. Nu o atinge
+//    daca nu stii ce faci.
+//  - Partea de dupa (cu <BaseLayout>) = ce se vede pe pagina, de sus in jos.
+//  - Textele NU sunt scrise aici, ci in fisierul src/data/content/home.json.
+//    Le editezi din panoul /admin → "Pagini" → "Pagina principala".
+//  - Comentariile de forma {/* ... */} nu apar pe site, sunt doar pentru tine.
+// ============================================================================
 import CtaBand from '../components/CtaBand.astro';
 import LatestPosts from '../components/LatestPosts.astro';
 import PageHero from '../components/PageHero.astro';
@@ -9,7 +20,8 @@ import { site } from '../data/site';
 import home from '../data/content/home.json';
 import { linkAttrs } from '../utils/links';
 
-// Structured data: describe the site and link it to its Facebook page.
+// Date structurate pentru Google (nu se vad pe pagina): descriu site-ul
+// si il leaga de pagina de Facebook.
 const siteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
@@ -20,11 +32,23 @@ const siteSchema = {
   sameAs: [site.facebookUrl],
 };
 
+// Cardurile din sectiunea "Ce gasesti la noi" sunt primele 3 categorii din
+// /admin → Pagini → Categorii. Schimba 3 cu alt numar ca sa arati mai multe/putine.
 const featuredServices = services.slice(0, 3);
 ---
 
 <BaseLayout title={site.name} description={site.description} schema={siteSchema}>
+  {/*
+    ==========================================================================
+    SECTIUNEA 1 - HERO (zona mare de sus, prima care se vede)
+    Stanga: text mic, titlu mare, subtitlu si doua butoane.
+    Dreapta: caseta cu logo (mai jos, in "aside").
+    Texte: /admin → Pagini → Pagina principala → campurile "Hero ...",
+    "Buton principal ...", "Buton secundar ...".
+    ==========================================================================
+  */}
   <PageHero eyebrow={home.heroEyebrow} title={home.heroTitle} subtitle={home.heroSubtitle}>
+    {/* Cele doua butoane de sub subtitlu: primul (rosu) duce la Facebook, al doilea (contur) la blog. */}
     <div class="buttons mt-5">
       <a
         class="button is-primary is-medium"
@@ -42,6 +66,12 @@ const featuredServices = services.slice(0, 3);
       </a>
     </div>
 
+    {/*
+      Caseta din DREAPTA hero-ului: logo-ul (fisierul public/logo.png), o
+      propozitie scurta si butonul catre Facebook.
+      Texte: campurile "Caseta cu logo ...". Ca sa schimbi logo-ul, inlocuieste
+      fisierul public/logo.png.
+    */}
     <Fragment slot="aside">
       <div class="box aw-hero-box has-text-centered">
         <img
@@ -63,6 +93,16 @@ const featuredServices = services.slice(0, 3);
     </Fragment>
   </PageHero>
 
+  {/*
+    ==========================================================================
+    SECTIUNEA 2 - "CE GASESTI LA NOI" (fundal usor diferit, 3 carduri)
+    Titlu + subtitlu, apoi 3 carduri cu categorii (Gaming, Tech, Cinema) si
+    butonul "Vezi toate categoriile".
+    Texte titlu/buton: campurile "Categorii - ..." din Pagina principala.
+    Textul din carduri: /admin → Pagini → Categorii.
+    Ca sa o stergi: sterge de la acest comentariu pana la inchiderea sectiunii (inainte de urmatorul comentariu SECTIUNEA).
+    ==========================================================================
+  */}
   <section class="section aw-section aw-section-alt">
     <div class="container">
       <div class="aw-section-head">
@@ -71,6 +111,7 @@ const featuredServices = services.slice(0, 3);
         <p class="subtitle is-6">{home.servicesSubtitle}</p>
       </div>
 
+      {/* Cele 3 carduri cu categorii. */}
       <div class="columns">
         {
           featuredServices.map((service) => (
@@ -81,12 +122,21 @@ const featuredServices = services.slice(0, 3);
         }
       </div>
 
+      {/* Butonul de sub carduri, duce la pagina Categorii. */}
       <div class="has-text-centered mt-6">
         <a class="button is-medium is-outlined" href="/services">{home.servicesButtonLabel}</a>
       </div>
     </div>
   </section>
 
+  {/*
+    ==========================================================================
+    SECTIUNEA 3 - CITATUL (o propozitie mare, cu bara rosie in stanga)
+    Stanga: citatul si semnatura. Dreapta: buton rosu spre Facebook + o nota.
+    Texte: campurile "Citat ..." din Pagina principala.
+    Ca sa o stergi: sterge de la acest comentariu pana la inchiderea sectiunii (inainte de urmatorul comentariu SECTIUNEA).
+    ==========================================================================
+  */}
   <section class="section aw-section">
     <div class="container">
       <div class="columns is-vcentered">
@@ -108,6 +158,15 @@ const featuredServices = services.slice(0, 3);
     </div>
   </section>
 
+  {/*
+    ==========================================================================
+    SECTIUNEA 4 - "DE CE ABSTRACT COOLER" (fundal usor diferit, 3 casete numerotate)
+    Titlu + subtitlu, apoi trei casete: 01, 02, 03, fiecare cu titlu si text.
+    Texte: campurile "De ce noi - ..." din Pagina principala (casetele sunt
+    in lista "De ce noi - casete": poti adauga sau sterge casete de acolo).
+    Ca sa o stergi: sterge de la acest comentariu pana la inchiderea sectiunii (inainte de urmatorul comentariu SECTIUNEA).
+    ==========================================================================
+  */}
   <section class="section aw-section aw-section-alt">
     <div class="container">
       <div class="aw-section-head">
@@ -132,8 +191,25 @@ const featuredServices = services.slice(0, 3);
     </div>
   </section>
 
+  {/*
+    ==========================================================================
+    SECTIUNEA 5 - ULTIMELE ARTICOLE (primele 3 articole de pe blog, automat)
+    Nu o editezi aici: se umple singura cu cele mai noi articole din
+    /admin → Articole Blog. Titlul sectiunii: /admin → Pagini → Blog
+    (texte pagina), campurile "Pagina principala - ...".
+    Componenta: src/components/LatestPosts.astro
+    ==========================================================================
+  */}
   <LatestPosts />
 
+  {/*
+    ==========================================================================
+    SECTIUNEA 6 - BANDA FINALA (caseta mare de jos, cu buton spre Facebook)
+    Ultima sectiune dinaintea footer-ului (partea de jos a site-ului).
+    Texte: campurile "Banda finala - ..." din Pagina principala.
+    Componenta: src/components/CtaBand.astro
+    ==========================================================================
+  */}
   <CtaBand
     eyebrow={home.ctaEyebrow}
     title={home.ctaTitle}
