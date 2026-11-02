@@ -12,7 +12,7 @@
 // ============================================================================
 import CtaBand from '../components/CtaBand.astro';
 import InstagramIcon from '../components/InstagramIcon.astro';
-import BlogCard from '../components/BlogCard.astro';
+import LatestPosts from '../components/LatestPosts.astro';
 import PageHero from '../components/PageHero.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -20,7 +20,6 @@ import { services } from '../data/services';
 import { site } from '../data/site';
 import home from '../data/content/home.json';
 import { linkAttrs } from '../utils/links';
-import { getCollection } from 'astro:content';
 
 // Date structurate pentru Google (nu se vad pe pagina): descriu site-ul
 // si il leaga de pagina de Facebook.
@@ -37,13 +36,6 @@ const siteSchema = {
 // Cardurile din sectiunea "Ce gasesti la noi" sunt primele 3 categorii din
 // /admin → Pagini → Categorii. Schimba 3 cu alt numar ca sa arati mai multe/putine.
 const featuredServices = services.slice(0, 3);
-
-// Preluăm primele 15 articole de pe blog în mod sigur (filtrând intrările fără dată)
-const allPosts = await getCollection('blog');
-const latestPosts = allPosts
-  .filter((post) => post.data && post.data.date)
-  .sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf())
-  .slice(0, 15);
 ---
 
 <BaseLayout title={site.name} description={site.description} schema={siteSchema}>
@@ -153,28 +145,14 @@ const latestPosts = allPosts
 
   {/*
     ==========================================================================
-    SECTIUNEA 3 - ULTIMELE ARTICOLE (primele 15 articole de pe blog, afișate sub formă de grilă)
-    Se încarcă automat cele mai noi 15 articole din colecția de blog.
+    SECTIUNEA 3 - ULTIMELE ARTICOLE (primele 3 articole de pe blog, automat)
+    Nu o editezi aici: se umple singura cu cele mai noi articole din
+    /admin → Articole Blog. Titlul sectiunii: /admin → Pagini → Blog
+    (texte pagina), campurile "Pagina principala - ...".
+    Componenta: src/components/LatestPosts.astro
     ==========================================================================
   */}
-  <section class="section aw-section">
-    <div class="container">
-      <div class="aw-section-head mb-6">
-        <h2 class="title is-2">Ultimele Articole</h2>
-        <p class="subtitle is-6">Descoperă cele mai recente noutăți și articole publicate.</p>
-      </div>
-
-      <div class="columns is-multiline">
-        {
-          latestPosts.map((post) => (
-            <div class="column is-4">
-              <BlogCard post={post} />
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
+  <LatestPosts />
 
   {/*
     ==========================================================================
