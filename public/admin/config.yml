@@ -9,7 +9,7 @@ media_folder: "public/images"
 public_path: "/images"
 
 # Logo afisat pe ecranul de login din /admin
-logo_url: https://abstract-cooler-theme.vercel.app/public/logo_abstract_cooler.png
+logo_url: https://abstract-cooler-theme.vercel.app/logo_abstract_cooler.png
 
 collections:
   - name: "blog"
