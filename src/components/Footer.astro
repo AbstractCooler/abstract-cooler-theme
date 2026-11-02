@@ -32,6 +32,13 @@ const year = new Date().getFullYear();
           <a href={site.facebookUrl} {...linkAttrs(site.facebookUrl)}>Facebook · Abstract Cooler</a>
         </p>
         {
+          site.instagramUrl && (
+            <p class="mb-1">
+              <a href={site.instagramUrl} {...linkAttrs(site.instagramUrl)}>Instagram · Abstract Cooler</a>
+            </p>
+          )
+        }
+        {
           site.email && (
             <p>
               <a href={`mailto:${site.email}`}>{site.email}</a>
