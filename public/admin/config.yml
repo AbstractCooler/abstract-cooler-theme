@@ -16,8 +16,14 @@ collections:
     fields:
       - {label: "Titlu", name: "title", widget: "string"}
       - {label: "Data publicării", name: "pubDate", widget: "datetime"}
-      - {label: "Descriere", name: "description", widget: "string"}
-      - {label: "Imagine principală", name: "image", widget: "image"}
+      - {label: "Descriere (apare în liste și pe Google)", name: "description", widget: "string"}
+      - label: "Etichete"
+        name: "tags"
+        widget: "list"
+        required: false
+        default: []
+        field: {label: "Etichetă", name: "tag", widget: "string"}
+      - {label: "Imagine principală", name: "image", widget: "image", required: false}
       - {label: "Conținut", name: "body", widget: "markdown"}
 
   - name: "pagini"
@@ -34,38 +40,37 @@ collections:
           - {label: "Buton principal - link", name: "primaryButtonLink", widget: "string"}
           - {label: "Buton secundar - text", name: "secondaryButtonLabel", widget: "string"}
           - {label: "Buton secundar - link", name: "secondaryButtonLink", widget: "string"}
-          - {label: "Casetă clase - titlu", name: "classesTitle", widget: "string"}
-          - label: "Casetă clase - listă"
-            name: "classes"
-            widget: "list"
-            fields:
-              - {label: "Zi și oră", name: "time", widget: "string"}
-              - {label: "Nume", name: "name", widget: "string"}
-          - {label: "Casetă clase - notă", name: "classesNote", widget: "string"}
-          - label: "Statistici"
+          - {label: "Caseta cu logo - text", name: "asideNote", widget: "string"}
+          - {label: "Caseta cu logo - text buton", name: "asideLinkLabel", widget: "string"}
+          - label: "Bara de categorii (emoji + nume)"
             name: "stats"
             widget: "list"
             fields:
-              - {label: "Valoare", name: "value", widget: "string"}
-              - {label: "Etichetă", name: "label", widget: "string"}
-          - {label: "Servicii - text mic", name: "servicesEyebrow", widget: "string"}
-          - {label: "Servicii - titlu", name: "servicesTitle", widget: "string"}
-          - {label: "Servicii - subtitlu", name: "servicesSubtitle", widget: "string"}
-          - {label: "Servicii - text buton", name: "servicesButtonLabel", widget: "string"}
+              - {label: "Emoji", name: "value", widget: "string"}
+              - {label: "Nume", name: "label", widget: "string"}
+          - {label: "Categorii - text mic", name: "servicesEyebrow", widget: "string"}
+          - {label: "Categorii - titlu", name: "servicesTitle", widget: "string"}
+          - {label: "Categorii - subtitlu", name: "servicesSubtitle", widget: "text"}
+          - {label: "Categorii - text buton", name: "servicesButtonLabel", widget: "string"}
           - {label: "Citat", name: "quote", widget: "text"}
-          - {label: "Citat - autor", name: "quoteAuthor", widget: "string"}
+          - {label: "Citat - semnătură", name: "quoteAuthor", widget: "string"}
           - {label: "Citat - text buton", name: "quoteButtonLabel", widget: "string"}
           - {label: "Citat - notă sub buton", name: "quoteButtonNote", widget: "string"}
-          - {label: "Testimoniale - text mic", name: "testimonialsEyebrow", widget: "string"}
-          - {label: "Testimoniale - titlu", name: "testimonialsTitle", widget: "string"}
-          - {label: "Testimoniale - subtitlu", name: "testimonialsSubtitle", widget: "string"}
+          - {label: "De ce noi - text mic", name: "whyEyebrow", widget: "string"}
+          - {label: "De ce noi - titlu", name: "whyTitle", widget: "string"}
+          - {label: "De ce noi - subtitlu", name: "whySubtitle", widget: "string"}
+          - label: "De ce noi - casete"
+            name: "whyCards"
+            widget: "list"
+            fields:
+              - {label: "Titlu", name: "title", widget: "string"}
+              - {label: "Text", name: "text", widget: "text"}
           - {label: "Banda finală - text mic", name: "ctaEyebrow", widget: "string"}
           - {label: "Banda finală - titlu", name: "ctaTitle", widget: "string"}
           - {label: "Banda finală - text", name: "ctaText", widget: "text"}
           - {label: "Banda finală - text buton", name: "ctaLabel", widget: "string"}
-          - {label: "Banda finală - link buton", name: "ctaLink", widget: "string"}
 
-      - label: "Despre"
+      - label: "Despre noi"
         name: "about"
         file: "src/data/content/about.json"
         fields:
@@ -86,34 +91,98 @@ collections:
             field: {label: "Punct", name: "item", widget: "string"}
           - {label: "Valori - text mic", name: "valuesEyebrow", widget: "string"}
           - {label: "Valori - titlu", name: "valuesTitle", widget: "string"}
-          - {label: "Echipă - text mic", name: "teamEyebrow", widget: "string"}
-          - {label: "Echipă - titlu", name: "teamTitle", widget: "string"}
-          - {label: "Echipă - subtitlu", name: "teamSubtitle", widget: "string"}
+          - label: "Valori"
+            name: "values"
+            widget: "list"
+            fields:
+              - {label: "Titlu", name: "title", widget: "string"}
+              - {label: "Descriere", name: "description", widget: "text"}
+          - {label: "Alătură-te - text mic", name: "joinEyebrow", widget: "string"}
+          - {label: "Alătură-te - titlu", name: "joinTitle", widget: "string"}
+          - {label: "Alătură-te - subtitlu", name: "joinSubtitle", widget: "string"}
+          - label: "Alătură-te - pași"
+            name: "joinSteps"
+            widget: "list"
+            fields:
+              - {label: "Titlu", name: "title", widget: "string"}
+              - {label: "Text", name: "text", widget: "text"}
           - {label: "Banda finală - text mic", name: "ctaEyebrow", widget: "string"}
           - {label: "Banda finală - titlu", name: "ctaTitle", widget: "string"}
           - {label: "Banda finală - text", name: "ctaText", widget: "text"}
+          - {label: "Banda finală - text buton", name: "ctaLabel", widget: "string"}
 
-  - name: "date-site"
-    label: "Setări și conținut site"
+      - label: "Categorii"
+        name: "services"
+        file: "src/data/content/services.json"
+        fields:
+          - {label: "Titlu pagină (SEO)", name: "pageTitle", widget: "string"}
+          - {label: "Descriere pagină (SEO)", name: "pageDescription", widget: "text"}
+          - {label: "Hero - text mic", name: "heroEyebrow", widget: "string"}
+          - {label: "Hero - titlu", name: "heroTitle", widget: "string"}
+          - {label: "Hero - subtitlu", name: "heroSubtitle", widget: "text"}
+          - {label: "Secțiune - text mic", name: "sectionEyebrow", widget: "string"}
+          - {label: "Secțiune - titlu", name: "sectionTitle", widget: "string"}
+          - label: "Categorii"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Titlu (poți pune emoji)", name: "title", widget: "string"}
+              - {label: "Descriere", name: "description", widget: "text"}
+              - label: "Puncte"
+                name: "details"
+                widget: "list"
+                field: {label: "Punct", name: "detail", widget: "string"}
+              - {label: "Linie jos (ex: PC · Console)", name: "format", widget: "string"}
+          - {label: "Banda finală - text mic", name: "ctaEyebrow", widget: "string"}
+          - {label: "Banda finală - titlu", name: "ctaTitle", widget: "string"}
+          - {label: "Banda finală - text", name: "ctaText", widget: "text"}
+          - {label: "Banda finală - text buton", name: "ctaLabel", widget: "string"}
+
+      - label: "Contact"
+        name: "contact"
+        file: "src/data/content/contact.json"
+        fields:
+          - {label: "Titlu pagină (SEO)", name: "pageTitle", widget: "string"}
+          - {label: "Descriere pagină (SEO)", name: "pageDescription", widget: "text"}
+          - {label: "Hero - text mic", name: "heroEyebrow", widget: "string"}
+          - {label: "Hero - titlu", name: "heroTitle", widget: "string"}
+          - {label: "Hero - subtitlu", name: "heroSubtitle", widget: "text"}
+          - {label: "Titlu coloana din stânga", name: "findTitle", widget: "string"}
+          - {label: "Facebook - etichetă", name: "facebookLabel", widget: "string"}
+          - {label: "Facebook - text", name: "facebookText", widget: "text"}
+          - {label: "Facebook - text buton", name: "facebookButton", widget: "string"}
+          - {label: "Email - etichetă", name: "emailLabel", widget: "string"}
+          - {label: "Caseta - titlu", name: "ideaTitle", widget: "string"}
+          - {label: "Caseta - text", name: "ideaText", widget: "text"}
+          - {label: "Notă jos", name: "noticeText", widget: "text"}
+
+      - label: "Blog (texte pagină)"
+        name: "blogpage"
+        file: "src/data/content/blog.json"
+        fields:
+          - {label: "Descriere pagină (SEO)", name: "pageDescription", widget: "text"}
+          - {label: "Hero - text mic", name: "heroEyebrow", widget: "string"}
+          - {label: "Hero - titlu", name: "heroTitle", widget: "string"}
+          - {label: "Hero - subtitlu", name: "heroSubtitle", widget: "text"}
+          - {label: "Mesaj când nu sunt articole", name: "emptyText", widget: "string"}
+          - {label: "Pagina principală - text mic", name: "latestEyebrow", widget: "string"}
+          - {label: "Pagina principală - titlu", name: "latestTitle", widget: "string"}
+          - {label: "Pagina principală - subtitlu", name: "latestSubtitle", widget: "string"}
+          - {label: "Pagina principală - text buton", name: "latestButton", widget: "string"}
+
+  - name: "setari"
+    label: "Setări site"
     files:
-      - label: "Setări generale (nume, contact, meniu)"
+      - label: "Setări generale (nume, Facebook, meniu)"
         name: "site"
         file: "src/data/content/site.json"
         fields:
           - {label: "Nume site", name: "name", widget: "string"}
           - {label: "Slogan", name: "tagline", widget: "string"}
-          - {label: "Descriere", name: "description", widget: "text"}
-          - {label: "Email", name: "email", widget: "string"}
-          - {label: "Telefon", name: "phone", widget: "string"}
-          - {label: "Adresă (afișată în site)", name: "address", widget: "string"}
-          - {label: "Stradă (pentru Google)", name: "streetAddress", widget: "string"}
-          - {label: "Localitate", name: "addressLocality", widget: "string"}
-          - {label: "Județ / regiune", name: "addressRegion", widget: "string"}
-          - {label: "Țară (cod, ex. RO)", name: "addressCountry", widget: "string"}
-          - label: "Program (format Google, ex. Mo-Fr 09:00-18:00)"
-            name: "openingHours"
-            widget: "list"
-            field: {label: "Interval", name: "interval", widget: "string"}
+          - {label: "Descriere (apare pe Google)", name: "description", widget: "text"}
+          - {label: "Email de contact (lasă gol dacă nu vrei să apară)", name: "email", widget: "string", required: false}
+          - {label: "Link pagină Facebook", name: "facebookUrl", widget: "string"}
+          - {label: "Text buton Facebook (din meniu)", name: "ctaLabel", widget: "string"}
           - {label: "Adresa site-ului (URL)", name: "url", widget: "string"}
           - label: "Meniu"
             name: "navItems"
@@ -121,69 +190,3 @@ collections:
             fields:
               - {label: "Text", name: "label", widget: "string"}
               - {label: "Link", name: "href", widget: "string"}
-
-      - label: "Servicii"
-        name: "services"
-        file: "src/data/content/services.json"
-        fields:
-          - label: "Servicii"
-            name: "items"
-            widget: "list"
-            fields:
-              - {label: "Titlu", name: "title", widget: "string"}
-              - {label: "Descriere", name: "description", widget: "text"}
-              - label: "Detalii"
-                name: "details"
-                widget: "list"
-                field: {label: "Detaliu", name: "detail", widget: "string"}
-              - {label: "Format (durată, loc)", name: "format", widget: "string"}
-
-      - label: "Prețuri"
-        name: "pricing"
-        file: "src/data/content/pricing.json"
-        fields:
-          - label: "Planuri"
-            name: "items"
-            widget: "list"
-            fields:
-              - {label: "Nume", name: "name", widget: "string"}
-              - {label: "Preț", name: "price", widget: "string"}
-              - {label: "Perioadă", name: "period", widget: "string"}
-              - {label: "Descriere", name: "description", widget: "text"}
-              - label: "Beneficii"
-                name: "features"
-                widget: "list"
-                field: {label: "Beneficiu", name: "feature", widget: "string"}
-              - {label: "Evidențiat", name: "highlighted", widget: "boolean", default: false}
-
-      - label: "Echipă și valori"
-        name: "team"
-        file: "src/data/content/team.json"
-        fields:
-          - label: "Echipă"
-            name: "team"
-            widget: "list"
-            fields:
-              - {label: "Nume", name: "name", widget: "string"}
-              - {label: "Rol", name: "role", widget: "string"}
-              - {label: "Descriere", name: "bio", widget: "text"}
-              - {label: "Inițiale", name: "initials", widget: "string"}
-          - label: "Valori"
-            name: "values"
-            widget: "list"
-            fields:
-              - {label: "Titlu", name: "title", widget: "string"}
-              - {label: "Descriere", name: "description", widget: "text"}
-
-      - label: "Testimoniale"
-        name: "testimonials"
-        file: "src/data/content/testimonials.json"
-        fields:
-          - label: "Testimoniale"
-            name: "items"
-            widget: "list"
-            fields:
-              - {label: "Text", name: "quote", widget: "text"}
-              - {label: "Nume", name: "name", widget: "string"}
-              - {label: "Rol / de când e membru", name: "role", widget: "string"}
-              - {label: "Inițiale", name: "initials", widget: "string"}
