@@ -1,3 +1,11 @@
+# ==========================================================================
+# CONFIGURAREA PANOULUI /admin (Sveltia CMS)
+# Aici decizi ce poți edita din panou. Fiecare "colecție" de mai jos este un
+# meniu din stânga: Articole Blog, Pagini, Setări site.
+# Atenție: indentarea (numărul de spații) contează. Nu o schimba.
+# ==========================================================================
+
+# --- Conectarea la GitHub (nu modifica fără motiv) ---
 backend:
   name: github
   repo: AbstractCooler/abstract-cooler-theme
@@ -5,6 +13,7 @@ backend:
   base_url: https://abstract-cooler-theme.vercel.app
   auth_endpoint: oauth
 
+# --- Imagini încărcate din panou: se salvează în public/images ---
 media_folder: "public/images"
 public_path: "/images"
 
@@ -12,6 +21,11 @@ public_path: "/images"
 logo_url: https://abstract-cooler-theme.vercel.app/logo.png
 
 collections:
+  # ========================================================================
+  # MENIUL 1: ARTICOLE BLOG
+  # Fiecare articol e un fișier din src/content/blog. Apare pe pagina /blog
+  # și (cele mai noi 3) în secțiunea "Ultimele articole" de pe prima pagină.
+  # ========================================================================
   - name: "blog"
     label: "Articole Blog"
     folder: "src/content/blog"
@@ -29,30 +43,43 @@ collections:
       - {label: "Imagine principală", name: "image", widget: "image", required: false}
       - {label: "Conținut", name: "body", widget: "markdown"}
 
+  # ========================================================================
+  # MENIUL 2: PAGINI
+  # Textele din paginile site-ului. Fiecare intrare editează un fișier din
+  # src/data/content. Câmpurile sunt în ordinea în care apar pe pagină.
+  # ========================================================================
   - name: "pagini"
     label: "Pagini"
     files:
+      # ----- PAGINA PRINCIPALĂ (adresa /) -----
       - label: "Pagina principală"
         name: "home"
         file: "src/data/content/home.json"
         fields:
+          # SECȚIUNEA 1 - HERO: zona mare de sus (text mic, titlu, subtitlu)
           - {label: "Hero - text mic deasupra", name: "heroEyebrow", widget: "string"}
           - {label: "Hero - titlu", name: "heroTitle", widget: "string"}
           - {label: "Hero - subtitlu", name: "heroSubtitle", widget: "text"}
+          # Cele două butoane de sub subtitlul din hero
           - {label: "Buton principal - text", name: "primaryButtonLabel", widget: "string"}
           - {label: "Buton principal - link", name: "primaryButtonLink", widget: "string"}
           - {label: "Buton secundar - text", name: "secondaryButtonLabel", widget: "string"}
           - {label: "Buton secundar - link", name: "secondaryButtonLink", widget: "string"}
+          # Caseta cu logo din dreapta hero-ului
           - {label: "Caseta cu logo - text", name: "asideNote", widget: "string"}
           - {label: "Caseta cu logo - text buton", name: "asideLinkLabel", widget: "string"}
+          # SECȚIUNEA 2 - "Ce găsești la noi": titlul și butonul de deasupra/sub cele 3 carduri
+          # (textul din carduri se editează la Pagini > Categorii)
           - {label: "Categorii - text mic", name: "servicesEyebrow", widget: "string"}
           - {label: "Categorii - titlu", name: "servicesTitle", widget: "string"}
           - {label: "Categorii - subtitlu", name: "servicesSubtitle", widget: "text"}
           - {label: "Categorii - text buton", name: "servicesButtonLabel", widget: "string"}
+          # SECȚIUNEA 4 - CITATUL cu bara roșie și butonul spre Facebook
           - {label: "Citat", name: "quote", widget: "text"}
           - {label: "Citat - semnătură", name: "quoteAuthor", widget: "string"}
           - {label: "Citat - text buton", name: "quoteButtonLabel", widget: "string"}
           - {label: "Citat - notă sub buton", name: "quoteButtonNote", widget: "string"}
+          # SECȚIUNEA 5 - "De ce Abstract Cooler": titlul și cele 3 casete numerotate
           - {label: "De ce noi - text mic", name: "whyEyebrow", widget: "string"}
           - {label: "De ce noi - titlu", name: "whyTitle", widget: "string"}
           - {label: "De ce noi - subtitlu", name: "whySubtitle", widget: "string"}
@@ -62,20 +89,26 @@ collections:
             fields:
               - {label: "Titlu", name: "title", widget: "string"}
               - {label: "Text", name: "text", widget: "text"}
+          # SECȚIUNEA 6 - BANDA FINALĂ (caseta mare de jos, înainte de footer)
+          # Notă: SECȚIUNEA 3 "Ultimele articole" (a treia de sus) se editează la Pagini > Blog (texte pagină)
           - {label: "Banda finală - text mic", name: "ctaEyebrow", widget: "string"}
           - {label: "Banda finală - titlu", name: "ctaTitle", widget: "string"}
           - {label: "Banda finală - text", name: "ctaText", widget: "text"}
           - {label: "Banda finală - text buton", name: "ctaLabel", widget: "string"}
 
+      # ----- DESPRE NOI (adresa /about) -----
       - label: "Despre noi"
         name: "about"
         file: "src/data/content/about.json"
         fields:
+          # Titlul și descrierea care apar în Google și în tab-ul browserului
           - {label: "Titlu pagină (SEO)", name: "pageTitle", widget: "string"}
           - {label: "Descriere pagină (SEO)", name: "pageDescription", widget: "text"}
+          # HERO: zona mare de sus a paginii
           - {label: "Hero - text mic", name: "heroEyebrow", widget: "string"}
           - {label: "Hero - titlu", name: "heroTitle", widget: "string"}
           - {label: "Hero - subtitlu", name: "heroSubtitle", widget: "text"}
+          # SECȚIUNEA "Cine suntem": titlul, paragrafele și caseta "Pe scurt" din dreapta
           - {label: "Secțiune - titlu", name: "whyTitle", widget: "string"}
           - label: "Secțiune - paragrafe"
             name: "whyParagraphs"
@@ -86,6 +119,7 @@ collections:
             name: "shortItems"
             widget: "list"
             field: {label: "Punct", name: "item", widget: "string"}
+          # SECȚIUNEA "Valorile noastre": titlul și cele 3 casete
           - {label: "Valori - text mic", name: "valuesEyebrow", widget: "string"}
           - {label: "Valori - titlu", name: "valuesTitle", widget: "string"}
           - label: "Valori"
@@ -94,6 +128,7 @@ collections:
             fields:
               - {label: "Titlu", name: "title", widget: "string"}
               - {label: "Descriere", name: "description", widget: "text"}
+          # SECȚIUNEA "Cum intri în comunitate": titlul și cei 3 pași
           - {label: "Alătură-te - text mic", name: "joinEyebrow", widget: "string"}
           - {label: "Alătură-te - titlu", name: "joinTitle", widget: "string"}
           - {label: "Alătură-te - subtitlu", name: "joinSubtitle", widget: "string"}
@@ -103,22 +138,29 @@ collections:
             fields:
               - {label: "Titlu", name: "title", widget: "string"}
               - {label: "Text", name: "text", widget: "text"}
+          # BANDA FINALĂ de jos
           - {label: "Banda finală - text mic", name: "ctaEyebrow", widget: "string"}
           - {label: "Banda finală - titlu", name: "ctaTitle", widget: "string"}
           - {label: "Banda finală - text", name: "ctaText", widget: "text"}
           - {label: "Banda finală - text buton", name: "ctaLabel", widget: "string"}
 
+      # ----- CATEGORII (adresa /services) -----
+      # Primele 3 categorii apar și pe prima pagină, în secțiunea "Ce găsești la noi".
       - label: "Categorii"
         name: "services"
         file: "src/data/content/services.json"
         fields:
+          # Titlul și descrierea pentru Google
           - {label: "Titlu pagină (SEO)", name: "pageTitle", widget: "string"}
           - {label: "Descriere pagină (SEO)", name: "pageDescription", widget: "text"}
+          # HERO: zona mare de sus a paginii
           - {label: "Hero - text mic", name: "heroEyebrow", widget: "string"}
           - {label: "Hero - titlu", name: "heroTitle", widget: "string"}
           - {label: "Hero - subtitlu", name: "heroSubtitle", widget: "text"}
+          # Titlul de deasupra cardurilor
           - {label: "Secțiune - text mic", name: "sectionEyebrow", widget: "string"}
           - {label: "Secțiune - titlu", name: "sectionTitle", widget: "string"}
+          # Lista cardurilor: poți adăuga, șterge sau reordona categorii
           - label: "Categorii"
             name: "items"
             widget: "list"
@@ -130,43 +172,56 @@ collections:
                 widget: "list"
                 field: {label: "Punct", name: "detail", widget: "string"}
               - {label: "Linie jos (ex: PC · Console)", name: "format", widget: "string"}
+          # BANDA FINALĂ de jos
           - {label: "Banda finală - text mic", name: "ctaEyebrow", widget: "string"}
           - {label: "Banda finală - titlu", name: "ctaTitle", widget: "string"}
           - {label: "Banda finală - text", name: "ctaText", widget: "text"}
           - {label: "Banda finală - text buton", name: "ctaLabel", widget: "string"}
 
+      # ----- CONTACT (adresa /contact) -----
       - label: "Contact"
         name: "contact"
         file: "src/data/content/contact.json"
         fields:
+          # Titlul și descrierea pentru Google
           - {label: "Titlu pagină (SEO)", name: "pageTitle", widget: "string"}
           - {label: "Descriere pagină (SEO)", name: "pageDescription", widget: "text"}
+          # HERO: zona mare de sus a paginii
           - {label: "Hero - text mic", name: "heroEyebrow", widget: "string"}
           - {label: "Hero - titlu", name: "heroTitle", widget: "string"}
           - {label: "Hero - subtitlu", name: "heroSubtitle", widget: "text"}
+          # Coloana din stânga: caseta cu butonul spre Facebook (și emailul, dacă ai pus unul)
           - {label: "Titlu coloana din stânga", name: "findTitle", widget: "string"}
           - {label: "Facebook - etichetă", name: "facebookLabel", widget: "string"}
           - {label: "Facebook - text", name: "facebookText", widget: "text"}
           - {label: "Facebook - text buton", name: "facebookButton", widget: "string"}
           - {label: "Email - etichetă", name: "emailLabel", widget: "string"}
+          # Coloana din dreapta: caseta "Ai o idee pentru noi?" și nota de jos
           - {label: "Caseta - titlu", name: "ideaTitle", widget: "string"}
           - {label: "Caseta - text", name: "ideaText", widget: "text"}
           - {label: "Notă jos", name: "noticeText", widget: "text"}
 
+      # ----- BLOG: textele paginii /blog și titlul secțiunii "Ultimele articole" de pe prima pagină -----
       - label: "Blog (texte pagină)"
         name: "blogpage"
         file: "src/data/content/blog.json"
         fields:
           - {label: "Descriere pagină (SEO)", name: "pageDescription", widget: "text"}
+          # HERO al paginii /blog
           - {label: "Hero - text mic", name: "heroEyebrow", widget: "string"}
           - {label: "Hero - titlu", name: "heroTitle", widget: "string"}
           - {label: "Hero - subtitlu", name: "heroSubtitle", widget: "text"}
           - {label: "Mesaj când nu sunt articole", name: "emptyText", widget: "string"}
+          # SECȚIUNEA 3 de pe prima pagină ("Ultimele articole", vine imediat după "Ce găsești la noi"): titlu, subtitlu, buton
           - {label: "Pagina principală - text mic", name: "latestEyebrow", widget: "string"}
           - {label: "Pagina principală - titlu", name: "latestTitle", widget: "string"}
           - {label: "Pagina principală - subtitlu", name: "latestSubtitle", widget: "string"}
           - {label: "Pagina principală - text buton", name: "latestButton", widget: "string"}
 
+  # ========================================================================
+  # MENIUL 3: SETĂRI SITE
+  # Lucruri care apar pe tot site-ul (meniu de sus, footer, butoane).
+  # ========================================================================
   - name: "setari"
     label: "Setări site"
     files:
@@ -178,9 +233,14 @@ collections:
           - {label: "Slogan", name: "tagline", widget: "string"}
           - {label: "Descriere (apare pe Google)", name: "description", widget: "text"}
           - {label: "Email de contact (lasă gol dacă nu vrei să apară)", name: "email", widget: "string", required: false}
+          # Linkul de Facebook se folosește la toate butoanele și în footer
           - {label: "Link pagină Facebook", name: "facebookUrl", widget: "string"}
+          # Linkul de Instagram: dacă îl lași gol, butoanele Instagram nu apar nicăieri.
+          # Când îl completezi apar în meniu (iconiță), pe prima pagină, în footer și la Contact.
+          - {label: "Link pagină Instagram (lasă gol ca să nu apară)", name: "instagramUrl", widget: "string", required: false}
           - {label: "Text buton Facebook (din meniu)", name: "ctaLabel", widget: "string"}
           - {label: "Adresa site-ului (URL)", name: "url", widget: "string"}
+          # Meniul de sus și lista "Navigare" din footer. Poți redenumi sau reordona.
           - label: "Meniu"
             name: "navItems"
             widget: "list"
