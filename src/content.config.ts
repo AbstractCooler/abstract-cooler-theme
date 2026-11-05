@@ -18,7 +18,12 @@ const blog = defineCollection({
     updatedDate: z.coerce.date().optional(),
     tags: z.array(z.string()).default([]),
     // Optional poster/cover image, e.g. /images/poster.png (set from /admin > Articole Blog).
-    image: z.string().optional(),
+    // Vercel serves the contents of /public from the site root, so a leading
+    // "/public" (or "public/") is removed: "/public/images/x.png" -> "/images/x.png".
+    image: z
+      .string()
+      .optional()
+      .transform((path) => path?.replace(/^\/?public\//, '/')),
   }),
 });
 
