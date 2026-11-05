@@ -60,6 +60,12 @@ const postSchema = {
           {post.data.tags.map((tag) => <span class="aw-tag">#{tag}</span>)}
         </div>
 
+        {
+          post.data.image && (
+            <img class="aw-post-image" src={post.data.image} alt={post.data.title} decoding="async" />
+          )
+        }
+
         <Content />
       </article>
 
