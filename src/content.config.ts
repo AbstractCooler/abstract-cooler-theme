@@ -17,6 +17,8 @@ const blog = defineCollection({
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     tags: z.array(z.string()).default([]),
+    // Optional poster/cover image, e.g. /images/poster.png (set from /admin > Articole Blog).
+    image: z.string().optional(),
   }),
 });
 
