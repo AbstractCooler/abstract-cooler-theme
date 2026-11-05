@@ -3,7 +3,7 @@ title: 'LOVITURĂ PENTRU FANI: „GOD OF WAR: LAUFEY” A FOST AMÂNAT OFICIAL! 
 pubDate: 2026-11-05T15:27:00
 description: 'DE CE A AMÎNAT SONY SANTA MONICA LANSAREA LUI GOD OF WAR: LAUFEY?'
 tags: []
-image: /public/images/gow_laufey.png
+image: /images/gow_laufey.png
 ---
 
 **LOVITURĂ PENTRU DETINĂTORII DE PS5: Sony Santa Monica a anunțat amânarea oficială pentru „God of War: Laufey”! ⏳🎮**
