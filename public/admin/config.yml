@@ -17,6 +17,7 @@ backend:
 media_folder: "public/images"
 public_path: "/images"
 
+# Numele fișierelor articolelor: fără diacritice și fără ghilimele
 slug:
   encoding: "ascii"
   clean_accents: true
