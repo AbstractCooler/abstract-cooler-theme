@@ -6,7 +6,8 @@ import decapCmsOauth from 'astro-decap-cms-oauth';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://abstract-cooler-theme.vercel.app',
+  // Domeniul principal (canonical): pe el se bazeaza sitemap-ul, canonical, og:url si RSS.
+  site: 'https://www.abstractcooler.ro',
   output: 'static',
   adapter: vercel(),
   integrations: [
