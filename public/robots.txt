@@ -2,5 +2,4 @@
 User-agent: *
 Allow: /
 
-# Cand ai un domeniu propriu, schimba adresa de mai jos.
-Sitemap: https://abstract-cooler-theme.vercel.app/sitemap-index.xml
+Sitemap: https://www.abstractcooler.ro/sitemap-index.xml
