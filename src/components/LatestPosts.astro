@@ -30,6 +30,7 @@ const posts = (await getCollection('blog'))
                   description={post.data.description}
                   pubDate={post.data.pubDate}
                   tags={post.data.tags}
+                  image={post.data.image}
                   href={`/blog/${post.id}/`}
                   readingTime={readingTime(post.body ?? '')}
                 />
