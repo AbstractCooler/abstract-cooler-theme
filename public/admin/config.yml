@@ -17,6 +17,11 @@ backend:
 media_folder: "public/images"
 public_path: "/images"
 
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"
+
 # Logo afisat pe ecranul de login din /admin
 logo_url: https://abstract-cooler-theme.vercel.app/logo.png
 
