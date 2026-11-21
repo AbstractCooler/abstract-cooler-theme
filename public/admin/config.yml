@@ -17,7 +17,8 @@ backend:
 media_folder: "public/images"
 public_path: "/images"
 
-# Numele fișierelor articolelor: fără diacritice și fără ghilimele
+# --- Numele fisierelor articolelor: fara diacritice, ghilimele sau spatii ---
+# (se aplica doar articolelor create dupa ce acest fisier e publicat)
 slug:
   encoding: "ascii"
   clean_accents: true
@@ -223,6 +224,8 @@ collections:
           - {label: "Pagina principală - titlu", name: "latestTitle", widget: "string"}
           - {label: "Pagina principală - subtitlu", name: "latestSubtitle", widget: "string"}
           - {label: "Pagina principală - text buton", name: "latestButton", widget: "string"}
+          # Cate articole apar in sectiunea de pe prima pagina (cele mai noi). Implicit 12.
+          - {label: "Pagina principală - câte articole apar", name: "latestCount", widget: "number", value_type: "int", min: 1, max: 24, default: 12, required: false}
 
   # ========================================================================
   # MENIUL 3: SETĂRI SITE
