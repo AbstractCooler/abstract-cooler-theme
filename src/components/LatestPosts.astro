@@ -1,14 +1,18 @@
 ---
 // Self-contained "latest articles" section for the home page.
-// Renders the three most recent blog posts and links to the full listing.
+// Renders the most recent blog posts (12 by default) and a button to the full listing.
 import BlogCard from './BlogCard.astro';
 import { getCollection } from 'astro:content';
 import { readingTime } from '../utils/reading-time';
 import blog from '../data/content/blog.json';
 
+// Cate articole apar pe prima pagina. Se schimba din /admin > Pagini > Blog (texte pagina),
+// campul "Pagina principala - cate articole apar". Daca lipseste, se folosesc 12.
+const latestCount = Number((blog as { latestCount?: number }).latestCount) || 12;
+
 const posts = (await getCollection('blog'))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3);
+  .slice(0, latestCount);
 ---
 
 <section class="section aw-section">
@@ -21,7 +25,7 @@ const posts = (await getCollection('blog'))
 
     {
       posts.length > 0 ? (
-        <div class="columns">
+        <div class="columns is-multiline">
           {
             posts.map((post) => (
               <div class="column is-4">
